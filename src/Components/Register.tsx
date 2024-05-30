@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [firstName, setFirstName] = useState<string>();
@@ -37,7 +38,10 @@ const Register = () => {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form
+        onSubmit={handleFormSubmit}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <input
           type="text"
           value={firstName}
@@ -76,6 +80,9 @@ const Register = () => {
         />
         <button type="submit">Register</button>
       </form>
+      <button type="submit">
+        <Link to={"/login"}>Login</Link>
+      </button>
     </div>
   );
 };
