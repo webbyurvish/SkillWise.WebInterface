@@ -14,6 +14,9 @@ const Home = () => {
       <button>
         <Link to={"/register"}>Register</Link>
       </button>
+      <button>
+        <Link to={"/bementor"}>Become A Mentor</Link>
+      </button>
     </div>
   );
 };
