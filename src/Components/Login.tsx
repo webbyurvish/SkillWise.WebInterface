@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { setUser } from "../features/Auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [userName, setUserName] = useState<string>();
   const [password, setPassword] = useState<string>();
@@ -29,6 +32,7 @@ const Login = () => {
 
     if (data != null) {
       setCookie("Tokens", data, { path: "/", maxAge: 60 });
+      dispatch(setUser(data));
       navigate("/", { replace: true });
     }
     console.log({ data, cookies });
