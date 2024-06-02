@@ -1,14 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../app/store";
+import ViewsSectionBody from "./View/Views-Section-Body";
 
 const Home = () => {
   const user = useSelector((state: RootState) => state.auth.user);
   console.log({ user });
   return (
-    <div>
+    <ViewsSectionBody>
       Home
-      <button>
+      {/* <button>
         <Link to={"/login"}>Login</Link>
       </button>
       <button>
@@ -19,8 +20,8 @@ const Home = () => {
       </button>
       <button>
         <Link to={"/mentors"}>Mentors</Link>
-      </button>
-    </div>
+      </button> */}
+    </ViewsSectionBody>
   );
 };
 
