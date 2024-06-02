@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,32 +39,6 @@ const Login = () => {
     };
     dispatch(loginUser({ credentials, navigate }));
   };
-
-  // const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   const user = {
-  //     firstName,
-  //     lastName,
-  //     userName,
-  //     email,
-  //     password,
-  //     phoneNumber,
-  //     roles: ["Manager", "User"],
-  //   };
-
-  //   const { data } = await axios.post(
-  //     "https://localhost:5001/api/authentication",
-  //     JSON.stringify(user),
-  //     {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     }
-  //   );
-
-  //   console.log({ data });
-  // };
 
   const handleSignup = (event: React.FormEvent) => {
     event.preventDefault();
@@ -211,27 +184,6 @@ const Login = () => {
           </div>
         )}
       </div>
-      {/* <form
-        onSubmit={handleLogin}
-        style={{ display: "flex", flexDirection: "column" }}
-      >
-        <input
-          type="text"
-          value={userName}
-          placeholder="UserName"
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          type="text"
-          value={password}
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form> */}
-      {/* <button type="submit">
-        <Link to={"/register"}>Register</Link>
-      </button> */}
     </div>
   );
 };

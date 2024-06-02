@@ -106,8 +106,13 @@ export const authSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<object>) => {
-      state.user = action.payload;
+    logoutUser: (state) => {
+      // Clear user data, set loading and error to default values, remove token from localStorage
+      state.user = null;
+      state.isLoading = false;
+      state.error = null;
+      state.isAuthenticated = false;
+      localStorage.removeItem("token");
     },
   },
   extraReducers: (builder) => {
@@ -147,6 +152,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setUser } = authSlice.actions;
+export const { logoutUser } = authSlice.actions;
 
 export default authSlice.reducer;
